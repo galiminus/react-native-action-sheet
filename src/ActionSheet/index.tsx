@@ -94,6 +94,7 @@ export default class ActionSheet extends React.Component<Props, State> {
       messageTextStyle,
       showSeparators,
       separatorStyle,
+      cancelButtonIndex,
     } = options;
     return (
       <TouchableWithoutFeedback onPress={this._selectCancelButton}>
@@ -130,6 +131,7 @@ export default class ActionSheet extends React.Component<Props, State> {
               messageTextStyle={messageTextStyle}
               showSeparators={showSeparators}
               separatorStyle={separatorStyle}
+	      cancelButtonIndex={cancelButtonIndex}
             />
           </View>
         </Animated.View>

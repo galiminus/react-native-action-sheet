@@ -21,6 +21,7 @@ export default class ActionGroup extends React.Component<Props> {
     showSeparators: false,
     tintIcons: true,
     textStyle: {},
+    cancelButtonIndex: null,
   };
 
   render() {
@@ -84,6 +85,7 @@ export default class ActionGroup extends React.Component<Props> {
       textStyle,
       tintColor,
       showSeparators,
+      cancelButtonIndex,
     } = this.props;
     const optionViews: React.ReactNode[] = [];
     const nativeFeedbackBackground = TouchableNativeFeedbackSafe.Ripple(
@@ -97,6 +99,7 @@ export default class ActionGroup extends React.Component<Props> {
         : (textStyle || {}).color || BLACK_87PC_TRANSPARENT;
       const color = i === destructiveButtonIndex ? DESTRUCTIVE_COLOR : defaultColor;
       const iconSource = icons != null ? icons[i] : null;
+      const marginTop = i === destructiveButtonIndex ? 12 : 0;
 
       optionViews.push(
         <TouchableNativeFeedbackSafe
@@ -104,7 +107,7 @@ export default class ActionGroup extends React.Component<Props> {
           pressInDelay={0}
           background={nativeFeedbackBackground}
           onPress={() => onSelect(i)}
-          style={styles.button}>
+          style={[styles.button, { marginTop }]}>
           {this._renderIconElement(iconSource, color)}
           <Text style={[styles.text, textStyle, { color }]}>{options[i]}</Text>
         </TouchableNativeFeedbackSafe>
