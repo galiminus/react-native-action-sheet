@@ -99,22 +99,9 @@ export default class ActionGroup extends React.Component<Props> {
         : (textStyle || {}).color || BLACK_87PC_TRANSPARENT;
       const color = i === destructiveButtonIndex ? DESTRUCTIVE_COLOR : defaultColor;
       const iconSource = icons != null ? icons[i] : null;
-      const cancelStyle =
-        i === destructiveButtonIndex
-          ? {
-              marginTop: 6,
-              borderTopWidth: 1,
-              borderColor: '#638393',
-              paddingTop: 6,
-            }
-          : {};
-
-      if (i === destructiveButtonIndex) {
-        (textStyle || {}).fontWeight = 'bold';
-      }
 
       optionViews.push(
-        <View style={cancelStyle}>
+        <View style={i === cancelButtonIndex ? styles.cancelContainerStyle : {}}>
           <TouchableNativeFeedbackSafe
             key={i}
             pressInDelay={0}
@@ -178,5 +165,11 @@ const styles = StyleSheet.create({
     alignItems: 'flex-start',
     padding: 16,
     paddingTop: 24,
+  },
+  cancelContainerStyle: {
+    marginTop: 6,
+    borderTopWidth: 1,
+    borderColor: '#638393',
+    paddingTop: 6,
   },
 });
