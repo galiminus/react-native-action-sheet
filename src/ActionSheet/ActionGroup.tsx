@@ -167,9 +167,7 @@ const styles = StyleSheet.create({
     paddingTop: 24,
   },
   cancelContainerStyle: {
-    marginTop: 3,
     borderTopWidth: 1 / PixelRatio.getPixelSizeForLayoutSize(1),
     borderColor: '#638393',
-    paddingTop: 3,
   },
 });
