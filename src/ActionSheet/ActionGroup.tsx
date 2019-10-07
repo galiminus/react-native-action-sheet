@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { StyleSheet, Text, Image, View, ScrollView } from 'react-native';
+import { StyleSheet, Text, Image, View, ScrollView, PixelRatio } from 'react-native';
 import TouchableNativeFeedbackSafe from './TouchableNativeFeedbackSafe';
 import { ActionSheetOptions } from '../types';
 
@@ -165,11 +165,10 @@ const styles = StyleSheet.create({
     alignItems: 'flex-start',
     padding: 16,
     paddingTop: 24,
-    fontWeight: 'bold',
   },
   cancelContainerStyle: {
     marginTop: 3,
-    borderTopWidth: 0.5,
+    borderTopWidth: 1 / PixelRatio.getPixelSizeForLayoutSize(1),
     borderColor: '#638393',
     paddingTop: 3,
   },
