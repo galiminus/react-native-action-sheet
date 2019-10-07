@@ -162,14 +162,15 @@ const styles = StyleSheet.create({
     textAlignVertical: 'center',
   },
   titleContainer: {
-    alignItems: 'flex-start',
+    alignItems: 'center',
     padding: 16,
     paddingTop: 24,
+    fontWeight: 'bold',
   },
   cancelContainerStyle: {
-    marginTop: 6,
+    marginTop: 3,
     borderTopWidth: 1,
     borderColor: '#638393',
-    paddingTop: 6,
+    paddingTop: 3,
   },
 });
