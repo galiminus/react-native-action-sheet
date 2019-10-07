@@ -106,20 +106,27 @@ export default class ActionGroup extends React.Component<Props> {
               borderTopWidth: 1,
               borderColor: '#638393',
               paddingTop: 6,
+            }
+          : {};
+      const cancelTextStyle =
+        i === destructiveButtonIndex
+          ? {
               fontWeight: 'bold',
             }
           : {};
 
       optionViews.push(
-        <TouchableNativeFeedbackSafe
-          key={i}
-          pressInDelay={0}
-          background={nativeFeedbackBackground}
-          onPress={() => onSelect(i)}
-          style={[styles.button, cancelStyle]}>
-          {this._renderIconElement(iconSource, color)}
-          <Text style={[styles.text, textStyle, { color }]}>{options[i]}</Text>
-        </TouchableNativeFeedbackSafe>
+        <View style={cancelStyle}>
+          <TouchableNativeFeedbackSafe
+            key={i}
+            pressInDelay={0}
+            background={nativeFeedbackBackground}
+            onPress={() => onSelect(i)}
+            style={[styles.button]}>
+            {this._renderIconElement(iconSource, color)}
+            <Text style={[styles.text, textStyle, { color }, cancelTextStyle]}>{options[i]}</Text>
+          </TouchableNativeFeedbackSafe>
+        </View>
       );
 
       if (showSeparators && i < startIndex + length - 1) {
