@@ -108,12 +108,10 @@ export default class ActionGroup extends React.Component<Props> {
               paddingTop: 6,
             }
           : {};
-      const cancelTextStyle =
-        i === destructiveButtonIndex
-          ? {
-              fontWeight: 'bold',
-            }
-          : {};
+
+      if (i === destructiveButtonIndex) {
+        (textStyle || {}).fontWeight = 'bold';
+      }
 
       optionViews.push(
         <View style={cancelStyle}>
@@ -124,7 +122,7 @@ export default class ActionGroup extends React.Component<Props> {
             onPress={() => onSelect(i)}
             style={[styles.button]}>
             {this._renderIconElement(iconSource, color)}
-            <Text style={[styles.text, textStyle, { color }, cancelTextStyle]}>{options[i]}</Text>
+            <Text style={[styles.text, textStyle, { color }]}>{options[i]}</Text>
           </TouchableNativeFeedbackSafe>
         </View>
       );
