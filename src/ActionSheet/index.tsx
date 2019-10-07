@@ -131,7 +131,7 @@ export default class ActionSheet extends React.Component<Props, State> {
               messageTextStyle={messageTextStyle}
               showSeparators={showSeparators}
               separatorStyle={separatorStyle}
-	      cancelButtonIndex={cancelButtonIndex}
+              cancelButtonIndex={cancelButtonIndex}
             />
           </View>
         </Animated.View>

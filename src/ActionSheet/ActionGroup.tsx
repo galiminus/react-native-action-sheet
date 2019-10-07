@@ -99,7 +99,16 @@ export default class ActionGroup extends React.Component<Props> {
         : (textStyle || {}).color || BLACK_87PC_TRANSPARENT;
       const color = i === destructiveButtonIndex ? DESTRUCTIVE_COLOR : defaultColor;
       const iconSource = icons != null ? icons[i] : null;
-      const marginTop = i === destructiveButtonIndex ? 12 : 0;
+      const cancelStyle =
+        i === destructiveButtonIndex
+          ? {
+              marginTop: 6,
+              borderTopWidth: 1,
+              borderColor: '#638393',
+              paddingTop: 6,
+              fontWeight: 'bold',
+            }
+          : {};
 
       optionViews.push(
         <TouchableNativeFeedbackSafe
@@ -107,7 +116,7 @@ export default class ActionGroup extends React.Component<Props> {
           pressInDelay={0}
           background={nativeFeedbackBackground}
           onPress={() => onSelect(i)}
-          style={[styles.button, { marginTop }]}>
+          style={[styles.button, cancelStyle]}>
           {this._renderIconElement(iconSource, color)}
           <Text style={[styles.text, textStyle, { color }]}>{options[i]}</Text>
         </TouchableNativeFeedbackSafe>
