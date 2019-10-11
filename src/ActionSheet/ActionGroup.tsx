@@ -102,9 +102,8 @@ export default class ActionGroup extends React.Component<Props> {
       const iconSource = icons != null ? icons[i] : null;
 
       optionViews.push(
-        <View style={i === cancelButtonIndex ? styles.cancelContainerStyle : {}}>
+        <View style={i === cancelButtonIndex ? styles.cancelContainerStyle : {}} key={i}>
           <TouchableNativeFeedbackSafe
-            key={i}
             pressInDelay={0}
             background={nativeFeedbackBackground}
             onPress={() => onSelect(i)}
